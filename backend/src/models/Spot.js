@@ -1,14 +1,14 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose")
 
 const SpotShema = new mongoose.Schema({
-    thumbnail: String,
-    company: String,
-    price: Number,
-    techs:[String],
-    user: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
-    }
-});
+  thumbnail: String,
+  company: String,
+  price: Number,
+  techs: [String],
+  user: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+})
 
-module.exports = mongoose.model('Spot', SpotShema);
+module.exports = mongoose.model("Spot", SpotShema)
