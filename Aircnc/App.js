@@ -1,20 +1,8 @@
 import React from "react"
-import { Text, SafeAreaView, StyleSheet } from "react-native"
+import Routes from "./src/routes"
 
 function App() {
-  return (
-    <SafeAreaView style={styles.Container}>
-      <Text>Hello World!</Text>
-    </SafeAreaView>
-  )
+  return <Routes />
 }
-
-const styles = StyleSheet.create({
-  Container: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-  },
-})
 
 export default App

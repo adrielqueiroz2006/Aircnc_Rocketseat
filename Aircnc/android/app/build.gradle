@@ -73,9 +73,9 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
-    namespace "com.aircnc"
+    namespace "com.testeaircnc"
     defaultConfig {
-        applicationId "com.aircnc"
+        applicationId "com.testeaircnc"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
