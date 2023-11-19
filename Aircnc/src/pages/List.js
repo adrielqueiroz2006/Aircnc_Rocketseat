@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react"
-import { Image, SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native"
+import socketio from "socket.io-client"
+import { Alert, Image, SafeAreaView, ScrollView, StyleSheet, Text, View } from "react-native"
 
 import storage from "../storage"
 
@@ -8,6 +9,25 @@ import SpotList from "../components/SpotList"
 
 export default function List() {
   const [techs, setTechs] = useState([])
+
+  useEffect(() => {
+    const userString = storage.getString("user")
+    const userData = JSON.parse(userString)
+    const user_id = userData._id
+    if (user_id) {
+      const socket = socketio("http://localhost:3333", {
+        query: { user_id },
+      })
+
+      socket.on("booking_response", (booking) => {
+        Alert.alert(
+          `Sua reserva em ${booking.spot.company} em ${booking.date} foi ${
+            booking.approved ? "APROVADA" : "REJEITADA"
+          }`
+        )
+      })
+    }
+  }, [])
 
   useEffect(() => {
     const storagedTechs = storage.getString("techs")

@@ -15,6 +15,12 @@ module.exports = {
     await Booking.populate(booking, { path: "spot" })
     await Booking.populate(booking, { path: "user" })
 
+    const ownerSocket = req.connectedUsers[booking.spot.user]
+
+    if (ownerSocket) {
+      req.io.to(ownerSocket).emit("booking_request", booking)
+    }
+
     return res.json(booking)
   },
 }

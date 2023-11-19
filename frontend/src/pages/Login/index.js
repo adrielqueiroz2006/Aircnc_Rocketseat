@@ -12,7 +12,6 @@ export default function Login() {
     const response = await api.post("/sessions", { email })
 
     const { _id } = response.data
-    console.log(_id)
 
     localStorage.setItem("user", _id)
 

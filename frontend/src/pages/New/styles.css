@@ -2,6 +2,7 @@ label#thumbnail {
   margin-bottom: 20px;
   border: 1px dashed #ddd;
   background-size: cover;
+  background-position: center;
   cursor: pointer;
   height: 160px;
 
